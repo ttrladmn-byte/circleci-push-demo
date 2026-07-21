@@ -1,0 +1,16 @@
+version: 2.1
+
+jobs:
+  say-hello:
+    docker:
+      - image: cimg/base:current
+    steps:
+      - checkout
+      - run:
+          name: Confirm push trigger
+          command: echo "CircleCI received this GitHub push."
+
+workflows:
+  push-check:
+    jobs:
+      - say-hello
